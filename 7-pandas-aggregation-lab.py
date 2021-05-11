@@ -25,10 +25,12 @@ df.drop('fnlwgt', axis=1, inplace=True)
 # =============================================================================
 
 # print the average age
-print(df.mean())
+print(df['age'].mean())
 
 # get the min, max, and avg value for each numeric column
-
+np.amax(df)
+np.amin(df)
+np.mean(df)
 # for a dataframe you get the aggregate for each column by default
 
 # =============================================================================
@@ -37,14 +39,14 @@ print(df.mean())
 
 # how many people in each category of education?
 # Try using pandas function value_counts().
-
+df.value_counts()
 # for each native country, what is the average education num?
-
+df['education_num'].mean()
 # repeat the previous problem, sorting the output by the average
 # education num value
 
 # for each occupation, compute the median age
-
+print(df.groupby('occupation').median('age'))
 # repeat the previous problem, but sort the output
 
 # find average hours_per_week for those with age <= 40, and those with age > 40
@@ -62,18 +64,18 @@ print(df.mean())
 
 # create a Pandas series containing the values in the native_country column.
 # Name this series 'country'.
-
+country = pd.Series(df['native_country'])
 # how many different values appear in the country series?
-
+country.unique.size
 # create a Series containing the unique country names in the series.
 # Name this new series 'country_names'.
-
+country_names = pd.Series(country.unique)
 # modify country_names so that underscore '_' is replaced
 # by a hyphen '-' in every country name.  Use a vectorized operation.
 # (See https://pandas.pydata.org/pandas-docs/stable/user_guide/text.html)
-
+country_names.str.replace("_","-")
 # modify country_names to replace 'Holand' with 'Holland'.
-
+country_names.str.replace("Holand","Holland")
 # modify country_names so that any characters after 5 are removed.
 # Again, use a vectorized operation
 
@@ -93,7 +95,7 @@ print(df.mean())
 gas = pd.read_csv("https://raw.githubusercontent.com/grbruns/cst383/master/Gasoline_Retail_Prices_Weekly_Average_by_Region__Beginning_2007.csv")
 
 # create a datetime series and make it the index of the dataset
-
+gas['Date'] = pd.to_datetime(gas['Date'])
 # plot the gas prices for NY city
 
 # plot gas prices for NY city and Albany on the same plot
