@@ -41,20 +41,29 @@ df = pd.read_csv("https://raw.githubusercontent.com/grbruns/cst383/master/mtcars
 # Create a basic scatterplot showing each car’s mpg as a function of engine 
 # displacement.  (in other words, mpg goes on the y axis and displacement on 
 # the x axis.)  Use the matplotlib scatter() function.
-
+plt.scatter(df['disp'], df['mpg'])
 # Improve your plot by adding 'displacement (cu. inches)' as the x axis
 # label, and 'miles per gallon' as the y axis label.
-
+plt.scatter(df['disp'], df['mpg'])
+plt.xlabel('displacement (cu. inches)')
+plt.ylabel('miles per gallon')
 # Make the dots dark red
-
+plt.scatter(df['disp'], df['mpg'], color='darkred')
+plt.xlabel('displacement (cu. inches)')
+plt.ylabel('miles per gallon')
 # Use upward triangles instead of circles
 # (hint: use the 'marker' option in plt.scatter)
-
+plt.scatter(df['disp'], df['mpg'], color='darkred', marker='^')
+plt.xlabel('displacement (cu. inches)')
+plt.ylabel('miles per gallon')
 # Add a title
 # Hint: in scatter plats, we often say 'A by B' when A is the
 # thing on the y axis and B is the thing on the x axis.  For
 # example: 'MPG by engine displacement'.
-
+plt.scatter(df['disp'], df['mpg'], color='darkred', marker='^')
+plt.xlabel('displacement (cu. inches)')
+plt.ylabel('miles per gallon')
+plt.title('MPG by engine displacement')
 # Compute the average mpg, and add a black dotted horizontal
 # line to show this value
 
