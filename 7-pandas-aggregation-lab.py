@@ -25,6 +25,7 @@ df.drop('fnlwgt', axis=1, inplace=True)
 # =============================================================================
 
 # print the average age
+print(df.mean())
 
 # get the min, max, and avg value for each numeric column
 
